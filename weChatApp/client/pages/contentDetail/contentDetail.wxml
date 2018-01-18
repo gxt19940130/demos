@@ -1,0 +1,38 @@
+<view class="search-wrapper">
+    <view class="search-input" bindtap="showMask">
+        <image class="search-input-icon" src="../../assets/search.png" />
+        <text class="search-input-text">搜索内容提问</text>
+    </view>
+    <view class="search-button">
+        <image class="search-button-icon" src="../../assets/edit.png" />
+        <text class="search-button-text" bindtap="showQuesMask">提问</text>
+    </view>
+</view>
+<view class="content-detail">
+    <view class="content-detail-title">{{questionTitle}}</view>
+    <view class="content-detail-answer">
+        {{contentDetail}}
+        <view class="content-detail-bottom">
+            <view>编辑于2018-01-18</view>
+            <view>著作权归作者所有</view>
+        </view>
+    </view>
+</view>
+<view class="content-detail-footer">
+    <view class="content-footer-item">
+        <image class="content-footer-image" src="../../assets/like.png" />
+        <view class="content-footer-text">赞同 {{like}}</view>
+    </view>
+    <view class="content-footer-item">
+        <image class="content-footer-image" src="../../assets/thanks.png" />
+        <view class="content-footer-text">感谢作者</view>
+    </view>
+    <view class="content-footer-item">
+        <image class="content-footer-image" src="../../assets/collect.png" />
+        <view class="content-footer-text">收藏</view>
+    </view>
+    <view class="content-footer-item">
+        <image class="content-footer-image" src="../../assets/comment-detail.png" />
+        <view class="content-footer-text">评论{{comment}}</view>
+    </view>
+</view>

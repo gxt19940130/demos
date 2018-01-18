@@ -1,0 +1,17 @@
+<view class="container">
+    <view class="userinfo" bindtap="getUserInfo">
+        <image class="userinfo-avatar" src="{{logged ? userInfo.avatarUrl : '../../assets/user-unlogin.png'}}" background-size="cover" />
+        <view>
+            <text class="userinfo-nickname">{{logged ? userInfo.nickName : ''}}</text>
+            <view class="userinfo-tip">查看个人主页或编辑简介</view>
+        </view>
+    </view>
+    <view class="user-list" wx:for="{{userCenterList}}" wx:key="{{index}}" wx:item="item">
+        <view class="user-list-item" wx:for="{{item}}" wx:key="{{index}}" wx:for-item="i">
+            <image class="user-list-icon" src="{{i.icon}}" />
+            <text class="user-list-title">{{i.title}}</text>
+            <image wx:if="{{i.moreLink}}" class="user-list-more" src="../../assets/to-more.png" />
+            <switch wx:if="{{i.theme}}" class="user-list-switch" checked="{{i.theme !== 'light'}}" />
+        </view>
+    </view>
+</view>

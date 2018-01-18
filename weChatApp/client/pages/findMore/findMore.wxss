@@ -1,0 +1,329 @@
+page {
+  background: #F6F6F6;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  position: relative;
+  padding-top: 70rpx;
+  height: 100%;
+}
+.find-header-wrapper{
+  width: 710rpx;
+  height: 50rpx;
+  padding: 10rpx 20rpx;
+  background: #fff;
+  text-align: center;
+  font-size: 28rpx;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 99;
+  border-bottom: 1rpx solid rgba(0, 0, 0, 0.1);
+}
+.find-userinfo-avatar{
+  width: 50rpx;
+  height: 50rpx;
+  border-radius: 50%;
+  display: inline-block;
+  vertical-align: middle;
+  float: left;
+}
+.find-header-rec{
+  float: right;
+  color: #1E8AE8;
+}
+.find-swiper-wrapper{
+  height: 210rpx;
+}
+.find-swiper-item{
+  width: 670rpx;
+  margin: 20rpx;
+  padding: 20rpx;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  background: #fff;
+  overflow: hidden;
+  position: relative;
+  border-radius: 10rpx;
+  box-shadow: -2rpx 2rpx 10rpx rgba(0, 0, 0, 0.1);
+}
+.find-swiper-dis{
+  color: #1E8AE8;
+  font-style: italic;
+  font-size: 28rpx;
+}
+.find-swiper-number{
+  display: inline-block;
+  font-style: normal;
+  font-size: 24rpx;
+  color: #1E8AE8;
+  margin-left: 20rpx;
+}
+.find-swiper-img{
+  width: 120rpx;
+  height: 80rpx;
+  position: absolute;
+  bottom: 20rpx;
+  right: 20rpx;
+}
+.find-swiper-title{
+  color: #323233;
+  font-size: 26rpx;
+  margin: 10rpx 0 6rpx;
+}
+.find-swiper-tip{
+  color: #999;
+  font-size: 24rpx;
+}
+.find-swiper-title,
+.find-swiper-tip{
+  width: 100%;
+  float: left;
+}
+.find-focus-list{
+  width: 710rpx;
+  padding: 10rpx 20rpx;
+  background: #fff;
+}
+.find-focus-item{
+  position: relative;
+}
+.find-focus-title{
+  color: #323233;
+  font-size: 28rpx;
+  font-weight: 500;
+  margin: 15rpx;
+}
+.find-focus-avatar,
+.find-hot-avatar{
+  width: 70rpx;
+  height: 70rpx;
+  border-radius: 50%;
+  display: inline-block;
+  vertical-align: middle;
+}
+.find-focus-info,
+.find-hot-info{
+  width: 620rpx;
+  display: inline-block;
+  font-size: 28rpx;
+  margin-left: 20rpx;
+  vertical-align: middle;
+  padding: 20rpx 0;
+  border-bottom: 1rpx solid rgba(0, 0, 0, 0.2);
+}
+.last{
+  border: none;
+}
+.find-focus-introduce{
+  color: #999;
+  font-size: 26rpx;
+}
+.find-focus-btn,
+.find-hot-btn{
+  position: absolute;
+  right: 20rpx;
+  top: 40rpx;
+  color: #1E8AE8;
+}
+.has-focus{
+  color: #999;
+}
+.find-focus-control{
+  text-align: center;
+}
+.find-focus-button{
+  display: inline-block;
+  width: 270rpx;
+  font-size: 24rpx;
+  padding: 10rpx;
+  text-align: center;
+  margin: 10rpx;
+}
+.find-focus-refresh{
+  color: #1E8AE8;
+  border: 1rpx solid #1E8AE8;
+  border-radius: 5rpx;
+}
+.find-focus-all{
+  color: #fff;
+  background: #1E8AE8;
+  border: 1rpx solid #1E8AE8;
+  border-radius: 5rpx;
+}
+.find-icon-wrapper{
+  width: 50rpx;
+  height: 30rpx;
+  margin-top: 5rpx;
+  position: relative;
+  display: inline-block;
+}
+.find-focus-icon{
+  width: 30rpx;
+  height: 30rpx;
+  position: absolute;
+  top: 0;
+}
+.find-icon-best{
+  left: 0;
+  z-index: 1;
+}
+.find-icon-auth{
+  left: 5rpx;
+}
+.find-hot-list{
+  font-size: 28rpx;
+}
+.find-hot-header{
+  padding: 20rpx;
+  height: 40rpx;
+  width: 710rpx;
+  background: #f6f6f6;
+  border-bottom: 1rpx solid rgba(0, 0, 0, 0.1);
+}
+.find-hot-item{
+  position: relative;
+  padding: 20rpx;
+  background: #fff;
+  border-bottom: 1rpx solid rgba(0, 0, 0, 0.1);
+}
+.find-hot-info{
+  border: none;
+}
+.find-hot-btn{
+  right: 80rpx;
+}
+.find-control-more{
+  position: absolute;
+  right: 20rpx;
+  top: 40rpx;
+  color: #1E8AE8;
+  width: 50rpx;
+  height: 40rpx;
+  text-align: center;
+}
+.find-control-image{
+  width: 20rpx;
+  height: 20rpx;
+}
+.find-hot-nickname{
+  font-weight: 500;
+}
+.find-hot-content{
+  width: 620rpx;
+  margin-left: 80rpx;
+  color: #333;
+  line-height: 1.6;
+}
+.find-hot-footer{
+  color: #999;
+  font-size: 24rpx;
+  text-align: left;
+  margin-left: 80rpx;
+  padding: 20rpx 0;
+}
+.find-hot-img{
+  width: 24rpx;
+  height: 24rpx;
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 10rpx;
+}
+.find-hot-text{
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 40rpx;
+}
+.find-show-all{
+  color: #1E8AE8;
+  margin-left: 80rpx;
+}
+.text-overflow{
+  height: 85rpx;
+  display: -webkit-box;
+  word-break: break-all;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp:2;
+}
+.find-footer{
+  font-size: 28rpx;
+  color: #999;
+  text-align: center;
+  background: #fff;
+  padding: 100rpx;
+}
+.find-footer-btn{
+  color: #1E8AE8;
+}
+.find-drawer{
+  text-align: left;
+  background: #fff;
+  color: #999;
+  padding: 0 30rpx;
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: -100%; 
+  z-index: 999;
+}
+.find-drawer-swiper{
+  height: 320rpx;
+}
+.find-drawer-title{
+  font-size: 28rpx;
+  padding: 40rpx 0;
+  text-align: center;
+}
+.find-drawer-item {
+  width: 170rpx;
+  display: inline-block;
+  text-align: center;
+  font-size: 24rpx;
+  padding-bottom: 20rpx;
+}
+.find-drawer-img{
+  width: 80rpx;
+  height: 80rpx;
+}
+.elephant{
+  background: #0e932e;
+  border-radius: 50%;
+}
+.find-drawer-control{
+  border-top: 1rpx solid rgba(0, 0, 0, 0.2);
+  border-bottom: 1rpx solid rgba(0, 0, 0, 0.2);
+  padding: 20rpx 0 0;
+}
+.find-img-wrapper{
+  width: 80rpx;
+  height: 80rpx;
+  border: 1rpx solid rgba(0, 0, 0, 0.2);
+  border-radius: 50%;
+  display: inline-block;
+}
+.find-control-img{
+  width: 60rpx;
+  height: 60rpx;
+  margin: 10rpx auto;
+}
+.find-drawer-cancel{
+  padding: 30rpx;
+  font-size: 28rpx;
+  text-align: center;
+}
+.scroll-view{
+  height: 100%;
+}
+.fixed{
+  padding: 20rpx;
+  height: 40rpx;
+  width: 710rpx;
+  background: #f6f6f6;
+  border-bottom: 1rpx solid rgba(0, 0, 0, 0.1);
+  position: fixed;
+  top: 70rpx;
+  left: 0;
+  right: 0;
+  z-index: 99;
+}

@@ -1,0 +1,21 @@
+<template name="search-mask">
+    <view class="search-mask {{isShow ? 'show' : 'hide'}}">
+        <view class="search-input-wrapper">
+            <image class="search-mask-icon" src="../../assets/search.png" />
+            <input class="search-mask-input" value="{{searchVal}}" placeholder-style="color: #cdcdcd" placeholder="搜索想知道的内容" autofocus="autofocus" auto-focus="{{isShow}}" focus="{{isShow}}" type="text" confirm-type="search" bindconfirm="searchTopic" />
+            <text class="search-mask-cancel" bindtap="hideMask">取消</text>
+        </view>
+        <view class="search-history" wx:if="{{historyList.length > 0}}">
+            <view class="search-history-title">搜索历史</view>
+            <view class="search-item" wx:for="{{historyList}}" wx:key="{{index}}">
+                <image class="search-icon-time" src="../../assets/time.png" />
+                <text class="search-item-text">{{item}}</text>
+                <image class="search-icon-del" data-index="{{index}}" bindtap="clearItem" src="../../assets/del-item.png" />
+            </view>
+            <view class="search-clear-all" bindtap="clearAll" wx:if="{{historyList.length > 1}}">
+                <image class="search-del-all" src="../../assets/del-all.png" />
+                <text class="search-del-text">清空搜索历史</text>
+            </view>
+        </view>
+    </view>
+</template>

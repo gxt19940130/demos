@@ -1,0 +1,35 @@
+<scroll-view class="message-scroll-view" scroll-y="true" bindscroll="onScroll">
+    <view class="message-bar">
+        <view class="message-bar-title">消息</view>
+        <image class="message-bar-icon" src="../../assets/msg-set.png" />
+    </view>
+    <view class="message-header">
+        <image class="message-header-icon" src="../../assets/msg-header.png" />
+        <view class="message-header-info">
+            <view class="message-header-title">私信</view>
+            <view class="message-header-content">{{messageHeader}}</view>
+        </view>
+    </view>
+    <view class="message-notice">
+        <view class="message-notice-title">通知列表</view>
+    </view>
+    <view wx:if="{{scorllTop >= 85}}" class="message-notice message-notice-fixed">
+        <view class="message-notice-title">通知列表</view>
+    </view>
+    <view class="message-list">
+        <view class="message-list-item" wx:for="{{messageList}}" wx:key="{{index}}" wx:item="item">
+            <image class="message-list-avatar" src="{{item.avatar}}" />
+            <view class="message-list-detail {{index == messageList.length - 1 ? 'message-list-noline' : ''}}">
+                <view wx:if="{{item.isAnswer}}">
+                    {{item.nickname}} 的提问等你来回答 <text class="message-list-title">{{item.title}}</text>
+                </view>
+                <view wx:else>
+                    {{item.nickname}} 回答了 <text class="message-list-title">{{item.title}}</text>
+                </view>
+                <image class="message-list-icon" src="{{item.isAnswer ? '../../assets/is-answer.png' : '../../assets/answer.png'}}" />
+                <view class="message-list-time">{{item.time}} 小时前</view>
+            </view>
+        </view>
+        <view class="message-list-nomore">没有更多了~</view>
+    </view>
+</scroll-view>

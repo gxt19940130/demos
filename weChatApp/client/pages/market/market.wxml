@@ -1,0 +1,164 @@
+<view class="market-wrapper">
+    <view class="market-search-wrapper">
+        <view class="market-search-input">
+            <image class="market-search-input-icon" src="../../assets/search.png" />
+            <text class="market-search-input-text">搜索知乎内容</text>
+        </view>
+        <view class="market-search-button">
+            <image class="market-search-button-icon" src="../../assets/message.png" />
+        </view>
+    </view>
+    <swiper class="market-swiper-wrapper" circular="{{autoplay}}" indicator-dots="{{indicator}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
+        <block wx:for="{{bannerList}}" wx:key="{{index}}" wx:item="item">
+            <swiper-item class="market-swiper">
+                <view class="market-swiper-item">
+                    <image class="market-swiper-img" src="{{item.src}}" />
+                </view>
+            </swiper-item>
+        </block>
+    </swiper>
+    <view class="market-icon-list">
+        <view class="market-icon-item" wx:for="{{iconList}}" wx:key="{{index}}" wx:item="item">
+            <image class="market-icon-img" src="{{item.icon}}" />
+            <view class="market-icon-text">{{item.title}}</view>
+        </view>
+    </view>
+    <view class="market-ad">
+        <image class="market-ad-img" src="{{adInfo.src}}" />
+    </view>
+    <!-- <view class="market-live">
+        <view class="market-live-title">Live 推荐</view>
+        <scroll-view class="market-scroll-view" scroll-x="true">
+            <view class="market-live-line" class="market-live-list">
+                <view class="market-live-item" wx:for="{{liveList}}" wx:key="{{index}}" wx:item="item">
+                   {{index}}
+                </view>
+            </view>
+        </scroll-view>
+    </view> -->
+    <view class="market-news-list">
+        <view class="market-news-header">每日新知</view>
+        <view class="market-news-item" wx:for="{{newsList}}" wx:key="{{index}}" wx:item="item">
+            <image class="maeket-news-icon" src="../../assets/play.png" />
+            <view class="market-news-title">{{item.keyword}}：{{item.title}}</view>
+            <view class="market-news-time">{{item.time}}</view>
+        </view>
+        <view class="market-news-footer">
+            <view class="market-news-btn">
+                <image class="market-news-img" src="../../assets/play-color.png" />
+                <view class="market-news-text">免费播放全部</view>
+            </view>
+            <view class="market-news-more">查看更多 ></view>
+        </view>
+    </view>
+    <view class="market-video">
+        <view class="market-video-header">
+            <image class="market-video-icon" src="../../assets/video.png" />
+            <view class="market-video-text">私家课</view>
+        </view>
+        <view class="market-video-list">
+            <view class="market-video-item" wx:for="{{lessonList}}" wx:key="{{index}}" wx:item="item">
+                <image class="market-video-img" src="{{item.image}}" />
+                <view class="market-video-area">
+                    <view class="market-vidoe-title">{{item.title}}</view>
+                    <view class="market-video-info">{{item.nickname}} · {{item.tip}}</view>
+                    <view class="market-video-price">¥{{item.price}}</view>
+                </view>
+                <view class="market-video-play">
+                    <image class="market-play-btn" src="../../assets/video-circle.png" />
+                    <view class="market-play-text">试听</view>
+                </view>
+            </view>
+        </view>
+        <view class="market-vidoe-footer">查看更多>></view>
+    </view>
+    <view class="market-part">
+        <view class="market-part-left">
+            <view class="market-part-title">{{partList[0].title}}</view>
+            <image class="market-part-img" src="{{partList[0].image}}" />
+        </view>
+        <view class="market-part-right">
+            <view class="market-part-top">
+                <view class="market-part-text">
+                    <view class="market-part-title">{{partList[1].title}}</view>
+                    <view class="market-part-tip">{{partList[1].tip}}</view>
+                </view>
+                <image class="market-part-img" src="{{partList[1].image}}" />
+            </view>
+            <view class="market-part-bottom">
+                <view class="market-part-text">
+                    <view class="market-part-title">{{partList[2].title}}</view>
+                    <view class="market-part-tip">{{partList[2].tip}}</view>
+                </view>
+                <image class="market-part-img" src="{{partList[2].image}}" />
+            </view>
+        </view>
+    </view>
+    <view class="market-lesson">
+        <view class="market-lesson-header">
+            <image class="market-lesson-icon" src="../../assets/file-header.png"/>
+            <view class="market-lesson-text">课程 · 特邀嘉宾</view>
+        </view>
+        <view class="market-lesson-list">
+            <view class="market-lesson-item" wx:for="{{specialList}}" wx:key="{{index}}" wx:item="item">
+                <image class="market-lesson-image" src="{{item.image}}" />
+                <view class="market-lesson-info">
+                    <view class="market-lesson-title">{{item.title}}</view>
+                    <view class="market-lesson-nickname">{{item.nickname}}</view>
+                    <view class="market-lesson-number">共 {{item.number}} 节课</view>
+                    <view class="market-lesson-actprice">¥{{item.actprice}}</view>
+                    <view class="market-lesson-price">¥{{item.price}}</view>
+                </view>
+            </view>
+            <view class="market-lesson-more">查看更多>></view>
+        </view>
+    </view>
+    <view class="market-book">
+        <view class="market-book-header">
+            <image class="market-book-icon" src="../../assets/book.png"/>
+            <view class="market-book-text">新书抢先看</view>
+        </view>
+        <view class="market-book-list">
+            <view class="market-book-item" wx:for="{{bookList}}" wx:key="{{index}}" wx:item="item">
+                <image class="market-book-img" src="{{item.image}}"/>
+                <view class="market-book-name">{{item.name}}</view>
+                <view class="market-book-actprice">¥{{item.actprice}}</view>
+                <view class="market-book-price">¥{{item.price}}</view>
+            </view>
+            <view class="market-book-more">查看更多>></view>
+        </view>
+    </view>
+    <view class="market-banner">
+        <scroll-view class="market-scroll-view" scroll-x="true">
+            <view class="market-banner-item {{ index == scrollBanner.length - 1 ? 'last-item' : ''}}" wx:for="{{scrollBanner}}" wx:key="{{index}}" wx:item="item">
+                <image class="market-banner-img" src="{{item.src}}"/>
+            </view>
+        </scroll-view>
+    </view>
+    <view class="market-guess">
+        <view class="market-guess-header">
+            <image class="market-guess-icon" src="../../assets/guess.png"/>
+            <view class="market-guess-text">猜你喜欢</view>
+        </view>
+        <view class="market-guess-list">
+            <view class="market-guess-item" wx:for="{{guessList}}" wx:key="{{index}}" wx:item="item">
+                <view class="market-guess-info">
+                    <view class="market-guess-title">{{item.title}}</view>
+                    <view class="market-guess-nickname">{{item.nickname}}</view>
+                    <view class="market-icon-wrapper" wx:if="{{item.bestAnswer || item.auth}}">
+                        <image class="market-info-icon market-icon-best" wx:if="{{item.bestAnswer}}" src="../../assets/best-icon.png" />
+                        <image class="market-info-icon market-icon-auth" wx:if="{{item.auth}}" src="../../assets/auth-icon.png" />
+                    </view>
+                    <view class="market-guess-number"> · {{item.number}}人参与</view>
+                    <view class="market-guess-score">
+                        <image class="market-score-item" wx:for="{{scoreList}}" wx:key="{{index}}" wx:for-item="t" wx:if="{{index < (item.score % 1 > 0 ? item.score - 1 : item.score)}}" src="../../assets/star-full.png" />
+                        <image class="market-score-item" wx:if="{{item.score < 5 && item.score % 5 > 0}}" src="../../assets/star-part.png" />
+                        <image class="market-score-item" wx:for="{{scoreList}}" wx:key="{{index}}" wx:for-item="t" wx:if="{{index < 5 - (item.score % 1 > 0 ? item.score + 1 : item.score)}}" wx:if= src="../../assets/star-null.png" />
+                        <view class="market-guess-price">¥{{item.price}}</view>
+                    </view>
+                </view>
+                <image class="market-guess-img" src="{{item.image}}" />
+            </view>
+        </view>
+    </view>
+</view>

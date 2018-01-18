@@ -1,0 +1,114 @@
+<view class="container">
+    <!-- 搜索 begin -->
+    <view class="search-wrapper">
+        <view class="search-input" bindtap="showMask">
+            <image class="search-input-icon" src="../../assets/search.png" />
+            <text class="search-input-text">搜索内容提问</text>
+        </view>
+        <view class="search-button">
+            <image class="search-button-icon" src="../../assets/edit.png" />
+            <text class="search-button-text" bindtap="showQuesMask">提问</text>
+        </view>
+    </view>
+    <view class="search-mask {{isShow ? 'show' : 'hide'}}">
+        <view class="search-input-wrapper">
+            <image class="search-mask-icon" src="../../assets/search.png" />
+            <input class="search-mask-input" value="{{searchVal}}" placeholder-style="color: #cdcdcd" placeholder="搜索想知道的内容" autofocus="autofocus" auto-focus="{{isShow}}" focus="{{isShow}}" type="text" confirm-type="search" bindconfirm="searchTopic" />
+            <text class="search-mask-cancel" bindtap="hideMask">取消</text>
+        </view>
+        <view class="search-history" wx:if="{{historyList.length > 0}}">
+            <view class="search-history-title">搜索历史</view>
+            <view class="search-item" wx:for="{{historyList}}" wx:key="{{index}}">
+                <image class="search-icon-time" src="../../assets/time.png" />
+                <text class="search-item-text">{{item}}</text>
+                <image class="search-icon-del" data-index="{{index}}" bindtap="clearItem" src="../../assets/del-item.png" />
+            </view>
+            <view class="search-clear-all" bindtap="clearAll" wx:if="{{historyList.length > 1}}">
+                <image class="search-del-all" src="../../assets/del-all.png" />
+                <text class="search-del-text">清空搜索历史</text>
+            </view>
+        </view>
+    </view>
+    <!-- 搜索 end -->
+    <!-- 提问 begin -->
+    <view class="question-mask {{isShowQues ? 'show' : 'hide'}}">
+        <view class="question-input-wrapper">
+            <view class="question-title-wrapper">
+                <text class="question-mask-cancel" style="float: left;" bindtap="hideQuesMask">取消</text>
+                <view class="mask-title">提问</view>
+                <view class="question-mask-next">下一步</view>
+            </view>
+            <input class="question-mask-input" placeholder-style="color: #cdcdcd" placeholder="输入问题并以问号结尾" type="text" />
+            <input class="question-mask-text" placeholder-style="color: #cdcdcd" placeholder="问题描述（选填）" type="textarea" />
+        </view>
+    </view>
+    <!-- 提问 end -->
+    <!-- tab begin-->
+    <view class="tab-wrapper" bindtap="setActive">
+        <view class="tab-item {{isActive == 0 ? 'tab-item-active' : ''}}" data-index="0">关注</view>
+        <view class="tab-item {{isActive == 1 ? 'tab-item-active' : ''}}" data-index="1">推荐</view>
+        <view class="tab-item {{isActive == 2 ? 'tab-item-active' : ''}}" data-index="2">热榜</view>
+        <view class="tab-item-line" animation="{{animationData}}"></view>
+    </view>
+    <!-- tab end -->
+    <!-- tab 选项卡内容开始 -->
+    <view class="tab-content {{isActive == 0 ? 'show' : 'hide'}}">
+        <view wx:if="{{focusList.length > 0}}" class="tab-content-focus" wx:for="{{focusList}}" wx:key="{{id}}" wx:item="item">
+            <view class="content-category">
+                <image class="category-avatar" src="{{item.avatar}}"/>
+                <text class="category-title">{{item.category}}</text>
+            </view>
+            <view class="focus-title">{{item.title}}</view>
+            <view class="focus-content">{{item.fineAnswer.content}}</view>
+            <view class="focus-footer">{{item.fineAnswer.content}}</view>
+        </view>
+        <view wx:if="{{focusList.length == 0}}">
+            <image class="to-recommend-img" src="../../assets/to-recommend.png"/>
+            <view class="to-recommend-title">还没有关注的人</view>
+            <view class="to-recommend-tip">去【推荐】看看吧</view>
+        </view>
+        <view wx:if="{{focusList.length != 0}}" class="load-more" bindtap="getMoreFocusList">
+            <image wx:if="{{isLoading}}" class="is-loading" src="../../assets/loading.gif" />{{loadMore}}
+        </view>
+    </view>
+    <view class="tab-content {{isActive == 1 ? 'show' : 'hide'}}">
+        <view class="tab-content-recommend" wx:for="{{recList}}" wx:key="{{index}}" wx:item="item">
+            <view class="content-category">
+                <image class="category-avatar" src="{{item.avatar}}"/>
+                <text class="category-title">{{item.category}}</text>
+            </view>
+            <view class="recommend-title" data-id="{{item.id}}" data-title="{{item.title}}" bindtap="goTitleDetail">{{item.title}}</view>
+            <view class="recommend-content"
+                data-id="{{item.id}}"
+                data-title="{{item.title}}"
+                data-avatar="{{item.avatar}}"
+                data-content="{{item.fineAnswer.content}}"
+                data-like="{{item.fineAnswer.like}}"
+                data-comment="{{item.fineAnswer.comment}}"
+                bindtap="goContentDetail">{{item.fineAnswer.content}}</view>
+            <view class="recommend-footer">
+                <view class="recommend-footer-text">
+                    <text>{{item.fineAnswer.like}}{{item.from == 'live' ? '感兴趣' : '赞同'}} · {{item.fineAnswer.comment}}{{item.from == 'live' ? '人参与' : '评论'}}</text>
+                    <text wx:if="{{item.from}}">· {{footerTip[item.from]}}</text>
+                </view>
+            </view>
+        </view>
+        <view class="load-more" bindtap="getMoreRecList">
+            <image wx:if="{{isLoading}}" class="is-loading" src="../../assets/loading.gif" />{{loadMore}}
+        </view>
+    </view>
+    <view class="tab-content {{isActive == 2 ? 'show' : 'hide'}}">
+        <view class="tab-content-hot" wx:for="{{hotList}}" wx:key="{{index}}" wx:item="item">
+            <text class="hot-index {{index < 3 ? 'hot-index-hot' : ''}}">{{index + 1}}</text>
+            <text class="hot-title">{{item.title}}</text>
+            <image class="hot-image" src="{{item.image}}" />
+            <view class="hot-footer-text">
+                <text>{{item.comment}}回答 · {{item.focus}}关注</text>
+            </view>
+        </view>
+        <view class="load-more" bindtap="getMoreHotList">
+            <image wx:if="{{isLoading}}" class="is-loading" src="../../assets/loading.gif" />{{loadMore}}
+        </view>
+    </view>
+    <!-- tab 选项卡内容结束 -->
+</view>

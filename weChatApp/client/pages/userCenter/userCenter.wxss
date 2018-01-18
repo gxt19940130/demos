@@ -1,0 +1,90 @@
+page {
+  background: #F6F6F6;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  position: relative;
+  padding-bottom: 40rpx;
+}
+.userinfo {
+    margin-top: 20rpx;
+    height: 140rpx;
+    width: 100%;
+    background: #FFF;
+    border: 1px solid rgba(0, 0, 0, .1);
+    border-left: none;
+    border-right: none;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    transition: all 300ms ease;
+}
+
+.userinfo-avatar {
+    width: 100rpx;
+    height: 100rpx;
+    margin: 20rpx;
+    border-radius: 50%;
+}
+
+.userinfo-nickname {
+    font-size: 32rpx;
+    color: #323233;
+}
+.userinfo-tip{
+  color: #cdcdcd;
+  font-size: 24rpx;
+}
+.user-list{
+  width: 750rpx;
+  margin-top: 20rpx;
+  text-align: left;
+  border: 1px solid rgba(0, 0, 0, .1);
+  border-left: none;
+  border-right: none;
+  background: #FFF;
+  padding: 20rpx 0;
+}
+.user-list-item{
+  max-width: 750rpx; 
+  position: relative;
+}
+.user-list-icon{
+  width: 50rpx;
+  height: 50rpx;
+  display: inline-block;
+  vertical-align: middle;
+  margin: 0 20rpx;
+  border-radius: 10rpx;
+}
+.user-list-more{
+  width: 40rpx;
+  height: 40rpx;
+  position: absolute;
+  top: 20rpx;
+  right: 20rpx;
+}
+.user-list-item .wx-switch-input{
+  display: inline-block;
+  position: absolute;
+  top: 20rpx;
+  right: 20rpx;
+  width: 84rpx !important;
+  height: 44rpx !important;
+}
+.user-list-item .wx-switch-input::before{
+  width: 80rpx !important;
+  height: 40rpx !important;
+}
+.user-list-item .wx-switch-input::after{
+  width: 40rpx !important;
+  height: 40rpx !important;
+} 
+ .user-list-title{
+  font-size: 28rpx;
+  color: #323233;
+  display: inline-block;
+  padding: 20rpx 0;
+  width: 650rpx;
+  border-bottom: 1rpx solid #ddd;
+} 

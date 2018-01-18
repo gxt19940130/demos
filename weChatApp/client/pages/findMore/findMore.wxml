@@ -1,0 +1,147 @@
+<view class="find-header-wrapper">
+    <image class="find-userinfo-avatar" src="{{logged ? userInfo.avatarUrl : '../../assets/user-unlogin.png'}}" background-size="cover" />
+    <text class="find-header-title">想法</text>
+    <text class="find-header-rec">推荐</text>
+</view>
+<scroll-view class="scroll-view" scroll-y bindscroll="onScroll">
+    <swiper class="find-swiper-wrapper" indicator-dots="{{indicatorDots}}" circular="{{autoplay}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
+        <block wx:for="{{discussList}}" wx:key="{{index}}" wx:item="item">
+            <swiper-item class="find-swiper">
+                <view class="find-swiper-item">
+                    <view class="find-swiper-dis">正在讨论<text class="find-swiper-number">{{item.number}}人正在讨论</text></view>
+                    <view class="find-swiper-title">{{item.title}}</view>
+                    <view class="find-swiper-tip">{{item.tip}}</view>
+                    <image class="find-swiper-img" src="{{item.image}}" />
+                </view>
+            </swiper-item>
+        </block>
+    </swiper>
+    <view class="find-focus-list">
+        <view class="find-focus-title">关注有趣的人，收获更多好想法</view>
+        <view class="find-focus-item" wx:for="{{recFocusList}}" wx:key="{{index}}" wx:item="item">
+            <image class="find-focus-avatar" src="{{item.avatar}}" />
+            <view class="find-focus-info {{index === 3 ? 'last' : ''}}">
+                <text class="find-focus-nickname">{{item.nickname}}</text>
+                <view class="find-icon-wrapper">
+                    <image class="find-focus-icon find-icon-best" wx:if="{{item.bestAnswer}}" src="../../assets/best-icon.png" />
+                    <image class="find-focus-icon find-icon-auth" wx:if="{{item.auth}}" src="../../assets/auth-icon.png" />
+                </view>
+                <view class="find-focus-introduce">{{item.introduce}}</view>
+                <view class="find-focus-btn" wx:if="{{!focusList[index]}}" data-index="{{index}}" bindtap="focusIt">关注</view>
+                <view class="find-focus-btn has-focus" wx:if="{{focusList[index]}}" data-index="{{index}}">已关注</view>
+            </view>
+        </view>
+        <view class="find-focus-control">
+            <view class="find-focus-button find-focus-refresh" bindtap="getRecFocusList">换一批</view>
+            <view class="find-focus-button find-focus-all" bindtap="focusAll">全部关注</view>
+        </view>
+    </view>
+        <view class="find-hot-list">
+            <view class="find-hot-header fixed" wx:if="{{scrollTop >= 430}}">
+                <view class="find-hot-title">最近热门</view>
+            </view>
+            <view class="find-hot-header">
+                <view class="find-hot-title">最近热门</view>
+            </view>
+            <view class="find-hot-item" wx:for="{{recHotList}}" wx:key="{{index}}" wx:item="item">
+                <image class="find-hot-avatar" src="{{item.avatar}}" />
+                <view class="find-hot-info">
+                    <text class="find-focus-nickname find-hot-nickname">{{item.nickname}}</text>
+                    <view class="find-icon-wrapper">
+                        <image class="find-focus-icon find-icon-best" wx:if="{{item.bestAnswer}}" src="../../assets/best-icon.png" />
+                        <image class="find-focus-icon find-icon-auth" wx:if="{{item.auth}}" src="../../assets/auth-icon.png" />
+                    </view>
+                    <view class="find-focus-introduce">{{item.time}}小时前</view>
+                    <view class="find-hot-btn" wx:if="{{!hotFocusList[index]}}" data-index="{{index}}" bindtap="hotFocus">关注</view>
+                    <view class="find-hot-btn has-focus" wx:if="{{hotFocusList[index]}}" data-index="{{index}}">已关注</view>
+                    <view class="find-control-more">
+                        <image class="find-control-image" src="../../assets/more-control.png" bindtap="toggleDrawer" />
+                    </view>
+                </view>
+                <view class="find-hot-content {{!showIndex[index] ? 'text-overflow' : ''}}">
+                    {{item.content}}
+                </view>
+                <view wx:if="{{!showIndex[index]}}" class="find-show-all" data-index="{{index}}" bindtap="toggleShow">展开全文</view>
+                <view wx:if="{{showIndex[index]}}" class="find-show-all" data-index="{{index}}" bindtap="toggleShow">收起全文</view>
+                <view class="find-hot-footer">
+                    <image class="find-hot-img" src="../../assets/forward.png" /><text class="find-hot-text">{{item.forward}}</text>
+                    <image class="find-hot-img" src="../../assets/comment.png" /><text class="find-hot-text">{{item.comment}}</text>
+                    <image class="find-hot-img" src="../../assets/praise.png" /><text class="find-hot-text">{{item.praise}}</text>
+                </view>
+            </view>
+        </view>
+    <view class="find-footer">
+        看看我们为你推荐的内容吧(づ￣3￣)づ╭❤
+        <view class="find-footer-btn">立即查看</view>
+    </view>
+</scroll-view>
+<view class="find-drawer" animation="{{animationData}}">
+    <view class="find-drawer-title">分享给好友</view>
+    <swiper class="find-drawer-swiper" indicator-dots="true" autoplay="{{footerAuto}}" duration="{{duration}}">
+        <swiper-item class="find-drawer-swiper-wrapper">
+            <view class="find-drawer-swiper">
+                <view class="find-drawer-item">
+                    <image class="find-drawer-img" src="../../assets/letter.png" />
+                    <view class="find-drawer-text">知乎私信</view>
+                </view>
+                <view class="find-drawer-item">
+                    <image class="find-drawer-img" src="../../assets/wechat.png" />
+                    <view class="find-drawer-text">微信好友</view>
+                </view>
+                <view class="find-drawer-item">
+                    <image class="find-drawer-img" src="../../assets/firends.png" />
+                    <view class="find-drawer-text">微信朋友圈</view>
+                </view>
+                <view class="find-drawer-item">
+                    <image class="find-drawer-img elephant" src="../../assets/elephant.png" />
+                    <view class="find-drawer-text">印象笔记</view>
+                </view>
+                <view class="find-drawer-item">
+                    <image class="find-drawer-img" src="../../assets/qq.png" />
+                    <view class="find-drawer-text">QQ</view>
+                </view>
+                <view class="find-drawer-item">
+                    <image class="find-drawer-img" src="../../assets/qzone.png" />
+                    <view class="find-drawer-text">QQ空间</view>
+                </view>
+                <view class="find-drawer-item">
+                    <image class="find-drawer-img" src="../../assets/weibo.png" />
+                    <view class="find-drawer-text">新浪微博</view>
+                </view>
+                <view class="find-drawer-item">
+                    <image class="find-drawer-img" src="../../assets/copy.png" />
+                    <view class="find-drawer-text">复制链接</view>
+                </view>
+            </view>
+        </swiper-item>
+        <swiper-item class="find-drawer-swiper-wrapper">
+            <view class="find-drawer-swiper">
+                <view class="find-drawer-item">
+                    <image class="find-drawer-img" src="../../assets/share-more.png" />
+                    <view class="find-drawer-text">更多</view>
+                </view>
+            </view>
+        </swiper-item>
+    </swiper>
+    <view class="find-drawer-control">
+        <view class="find-drawer-item">
+            <view class="find-img-wrapper">
+                <image class="find-control-img" src="../../assets/file.png" />
+            </view>
+            <view class="find-drawer-text">收藏</view>
+        </view>
+        <view class="find-drawer-item">
+            <view class="find-img-wrapper">
+                <image class="find-control-img" src="../../assets/wrong.png" />
+            </view>
+            <view class="find-drawer-text">不感兴趣</view>
+        </view>
+        <view class="find-drawer-item">
+            <view class="find-img-wrapper">
+                <image class="find-control-img" src="../../assets/forbidden.png" />
+            </view>
+            <view class="find-drawer-text">举报</view>
+        </view>
+    </view>
+    <view class="find-drawer-cancel" bindtap="toggleDrawer"> 取消 </view>
+</view>

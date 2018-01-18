@@ -1,0 +1,32 @@
+<view class="search-wrapper">
+    <view class="search-input" bindtap="showMask">
+        <image class="search-input-icon" src="../../assets/search.png" />
+        <text class="search-input-text">搜索内容提问</text>
+    </view>
+    <view class="search-button">
+        <image class="search-button-icon" src="../../assets/edit.png" />
+        <text class="search-button-text" bindtap="showQuesMask">提问</text>
+    </view>
+    <view class="search-title">{{questionTitle}}</view>
+</view>
+<view class="title-detail-wrapper">
+    <view class="title-detail">
+        <view class="title-detail-title">{{questionTitle}}</view>
+        <view class="title-detail-describe">{{describe}}</view>
+    </view>
+    <view class="title-answer-middle">
+        <view class="title-answer-number">{{answerNumber}}个回答</view>
+        <view class="title-answer-sort">默认排序</view>
+    </view>
+    <view class="title-answer-list">
+        <view class="title-answer-item" wx:for="{{answerList}}" wx:key="{{index}}" wx:item="item">
+            <image class="title-answer-avatar" src="{{item.avatar}}" />
+            <view class="title-answer-nickname">{{item.nickname}}</view>
+            <view class="title-answer-content">{{item.content}}</view>
+            <view class="title-answer-footer">{{item.like}}赞同 · {{item.comment}}评论 · {{item.time}}</view>
+        </view>
+    </view>
+    <view class="load-more" bindtap="getMoreDetailList">
+        <image wx:if="{{isLoading}}" class="is-loading" src="../../assets/loading.gif" />{{loadMore}}
+    </view>
+</view>

@@ -1,0 +1,54 @@
+{
+    "pages": [
+        "pages/index/index",
+        "pages/findMore/findMore",
+        "pages/userCenter/userCenter",
+        "pages/market/market",
+        "pages/searchResult/searchResult",
+        "pages/message/message",
+        "pages/titleDetail/titleDetail",
+        "pages/contentDetail/contentDetail"
+    ],
+    "window": {
+        "backgroundColor": "#FFF",
+        "backgroundTextStyle": "dark",
+        "navigationBarBackgroundColor": "#FFF",
+        "navigationBarTitleText": "Wafer Quick Start",
+        "navigationBarTextStyle": "black",
+        "enablePullDownRefresh": true
+    },
+    "tabBar": {
+        "backgroundColor": "#fff",
+        "color": "#999",
+        "selectedColor": "#1E8AE8",
+        "borderStyle": "white",
+        "list": [{
+            "selectedIconPath": "assets/home-light.png",
+            "iconPath": "assets/home.png",
+            "pagePath": "pages/index/index",
+            "text": "首页"
+        }, {
+            "selectedIconPath": "assets/find-light.png",
+            "iconPath": "assets/find.png",
+            "pagePath": "pages/findMore/findMore",
+            "text": "想法"
+        },
+        {
+          "selectedIconPath": "assets/market-light.png",
+          "iconPath": "assets/market.png",
+          "pagePath": "pages/market/market",
+          "text": "市场"
+        },
+        {
+          "selectedIconPath": "assets/msg-light.png",
+          "iconPath": "assets/msg.png",
+          "pagePath": "pages/message/message",
+          "text": "消息"
+        }, {
+            "selectedIconPath": "assets/more-light.png",
+            "iconPath": "assets/more.png",
+            "pagePath": "pages/userCenter/userCenter",
+            "text": "更多"
+        }]
+    }
+}

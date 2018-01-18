@@ -1,0 +1,136 @@
+/* pages/detail/detail.wxss */
+page {
+  background: #F6F6F6;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  position: relative;
+  color: #323233;
+  height: 100%;
+}
+.scroll-wrapper{
+  height: 100%;
+}
+.search-wrapper{
+  width: 750rpx;
+  height: 100rpx;
+  background: #fff;
+  position: fixed;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+  border-bottom: 1rpx solid rgba(0, 0, 0, 0.2);
+}
+.search-input,
+.search-mask-input{
+  width: 560rpx;
+  height: 70rpx;
+  margin: 15rpx 20rpx;
+  display: inline-block;
+  vertical-align: middle;
+  background: #F6F6F6;
+  border-radius: 10rpx;
+  text-align: center;
+  font-size: 28rpx;
+  line-height: 70rpx;
+  color: #cdcdcd;
+}
+.search-button{
+  width: 110rpx;
+  height: 80rpx;
+  font-size: 28rpx;
+  display: inline-block;
+  vertical-align: middle;
+  line-height: 80rpx;
+}
+.search-input-icon,
+.search-button-icon{
+  width: 40rpx;
+  height: 40rpx;
+  display: inline-block;
+  vertical-align: middle;
+}
+.search-input-icon{
+  width: 30rpx;
+  height: 30rpx;
+  margin-bottom: 5rpx;
+  line-height: 70rpx;
+  display: inline-block;
+  vertical-align: middle;
+}
+.search-button-text{
+  color: #1E8AE8;
+  display: inline-block;
+  vertical-align: middle;
+}
+.title-detail-wrapper{
+  margin-top: 100rpx;
+  font-size: 36rpx;
+}
+.title-answer-middle{
+  width: 700rpx;
+  color: #999;
+  font-size: 28rpx;
+  padding: 20rpx 25rpx 0;
+  overflow: hidden;
+}
+.title-answer-number{
+  float: left;
+}
+.title-answer-sort{
+  float: right;
+}
+.title-detail{
+  width: 700rpx;
+  background: #fff;
+  padding: 20rpx 25rpx;
+}
+.title-detail-describe,
+.title-answer-content{
+  font-size: 28rpx;
+  color: #444;
+  max-width: 700rpx; 
+  display: -webkit-box; 
+  word-break: break-all;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp:2;
+  line-height: 1.6;
+  margin: 10rpx 0;
+}
+.title-answer-item{
+  margin-top: 20rpx;
+  width: 700rpx;
+  background: #fff;
+  padding: 20rpx 25rpx;
+}
+.title-answer-avatar,
+.title-answer-nickname{
+  display: inline-block;
+  vertical-align: middle;
+}
+.title-answer-avatar{
+  width: 40rpx;
+  height: 40rpx;
+  border-radius: 50%;
+  margin-right: 20rpx;
+}
+.title-answer-nickname{
+  font-size: 28rpx;
+}
+.title-answer-footer{
+  color: #999;
+  font-size: 28rpx;
+}
+.load-more{
+  color: #cdcdcd;
+  text-align: center;
+  margin: 15rpx 0;
+  font-size: 28rpx;
+}
+.is-loading{
+  width: 25rpx;
+  height: 25rpx;
+  margin-right: 10rpx;
+}

@@ -1,0 +1,16 @@
+{
+	"client": "./client",
+	"svr": "./server",
+	"miniprogramRoot": "./client",
+	"qcloudRoot": "./server",
+	"setting": {
+		"urlCheck": true,
+		"es6": true,
+		"postcss": true,
+		"minified": true,
+		"newFeature": true
+	},
+	"appid": "wx5c9ab8d93d0a0885",
+	"projectname": "%E7%9F%A5%E5%B0%8F%E4%B9%8E%E4%B9%8E",
+	"condition": {}
+}
