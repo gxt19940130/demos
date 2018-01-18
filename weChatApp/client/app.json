@@ -13,7 +13,7 @@
         "backgroundColor": "#FFF",
         "backgroundTextStyle": "dark",
         "navigationBarBackgroundColor": "#FFF",
-        "navigationBarTitleText": "Wafer Quick Start",
+        "navigationBarTitleText": "知小乎",
         "navigationBarTextStyle": "black",
         "enablePullDownRefresh": true
     },
